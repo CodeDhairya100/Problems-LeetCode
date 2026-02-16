@@ -2,26 +2,33 @@ class Solution {
 public:
     int compress(vector<char>& chars) {
         int i=0;
-        int index=0;
-        int n=chars.size();
-    
+        int ansIndex=0;
+        int n=chars.size();   
         while(i<n){
-            char current_char=chars[i];
-            int count=0;
-            while(i<n && chars[i]==current_char){
-                count++;
-                i++;
+            int j=i+1;
+            while(j<n && chars[i]==chars[j]){
+                j++;
             }
+            //yaha kab aaoge
+            //ya toh vector pura traverse kar diya 
+            //ya fir new/diff character encounter kia hai 
 
-            chars[index++] = current_char;
+            //oldChar store karlo
+            chars[ansIndex]=chars[i];
+            ansIndex++;
+
+            int count = j-i;
 
             if(count>1){
-                string count_str = to_string(count);
-                for(char c : count_str){
-                    chars[index++]=c;
+                //converting counting into single digit and saving in answer
+                string cnt = to_string(count);
+                for(char ch: cnt){
+                    chars[ansIndex]=ch;
+                    ansIndex++;
                 }
             }
+            i=j;
         }
-        return index;
+        return ansIndex;
     }
 };
