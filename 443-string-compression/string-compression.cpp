@@ -14,8 +14,7 @@ public:
             //ya fir new/diff character encounter kia hai 
 
             //oldChar store karlo
-            chars[ansIndex]=chars[i];
-            ansIndex++;
+            chars[ansIndex++]=chars[i];
 
             int count = j-i;
 
@@ -23,8 +22,7 @@ public:
                 //converting counting into single digit and saving in answer
                 string cnt = to_string(count);
                 for(char ch: cnt){
-                    chars[ansIndex]=ch;
-                    ansIndex++;
+                    chars[ansIndex++]=ch;
                 }
             }
             i=j;
