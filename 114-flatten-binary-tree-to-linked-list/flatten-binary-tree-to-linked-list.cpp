@@ -11,13 +11,15 @@
  */
 class Solution {
 public:
+
     TreeNode* NextRight = NULL;
     
-    void flatten(TreeNode* root) {
-        if(root==NULL) return;
+    void flatten(TreeNode* root) { // with the help of PreOrder Traversal
+        
+        if(!root) return;
 
         flatten(root->right);
-        flatten(root->left); 
+        flatten(root->left);
 
         root->left = NULL;
         root->right = NextRight;
